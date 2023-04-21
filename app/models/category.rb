@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
   has_many :photos, dependent: :destroy
-  has_many :comments
+  has_many :comments, as: :criticable, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
   validates :description, length: { in: 20..100 }, allow_blank: true
