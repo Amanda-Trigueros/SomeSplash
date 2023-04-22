@@ -1,10 +1,5 @@
 class PhotosController < ApplicationController
 
-  def index
-    @photos = Photo.all
-    render "index"
-  end
-
   def new
     @photo = Photo.new
   end
