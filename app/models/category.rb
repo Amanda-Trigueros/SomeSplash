@@ -3,5 +3,5 @@ class Category < ApplicationRecord
   has_many :comments, as: :commentable, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
-  validates :description, length: { in: 1..100 }, allow_blank: true
+  validates :description, length: { in: 1..200 }, allow_blank: true
 end
