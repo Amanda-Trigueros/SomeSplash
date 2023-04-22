@@ -1,3 +1,42 @@
 <h1>New Photo</h1>
 
-<%= render "form", photo: @photo %>
+<%= form_with model: @photo do |form| %>
+<div>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+
+  <% @photo.errors.full_messages_for(:title).each do |message|  %>
+    <span>
+      <%= message %>
+    </span>
+  <% end %>
+</div>
+<div>
+  <%= form.label :description %>
+  <%= form.text_area :description%>
+
+  <% @photo.errors.full_messages_for(:description).each do |message|  %>
+    <span>
+      <%= message %>
+    </span>
+  <% end %>
+
+</div>
+
+<div>
+  <%= form.label :category_id %>
+  <%= form.collection_select :categoy_id, Category.order(:name), :id, :name %>
+
+  <% @photo.errors.full_messages_for(:category_id).each do |message|  %>
+    <span>
+      <%= message %>
+    </span>
+  <% end %>
+
+</div>
+
+<div>
+  <%= form.submit %>
+</div>
+
+<% end %>
