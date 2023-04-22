@@ -1,11 +1,16 @@
 class PhotosController < ApplicationController
 
+  def show
+    @photo = Photo.find(params[:id])
+  end
+
   def new
     @photo = Photo.new
   end
 
-  def show
+  def edit
     @photo = Photo.find(params[:id])
+
   end
 
   def create
@@ -14,18 +19,13 @@ class PhotosController < ApplicationController
     if @photo.save
       redirect_to photo_path(@photo)
     else
-      render :new, status: :unprocessable_entity 
+      render :new, status: :unprocessable_entity
     end
-  end
-
-  def edit
-    @photo = Photo.find(params[:id])
-
   end
 
   def update
     @photo = Photo.find(params[:id])
-
+ 
     if @photo.update(photo_params)
       redirect_to photo_path(@photo)
     else
@@ -43,6 +43,6 @@ class PhotosController < ApplicationController
   private
 
   def photo_params
-    params.require(:photo).permit(:title, :description, :image)
+    params.require(:photo).permit(:title, :description, :category_id, :image)
   end
 end
