@@ -19,7 +19,6 @@ wallpaper = Category.create(name: "Wallpapers", description: "From epic drone sh
 nature= Category.create(name: "Nature", description: "Let's celebrate the magic of Mother Earth — with images of everything our planet has to offer.")
 people= Category.create(name: "People", description: "Real people, captured. Photography has the power to reflect the world around us, give voice to individuals and groups.")
 
-p wallpaper
 
 beachsunset = Photo.create(title: "Beach Sunset", category: wallpaper)
 baynight = Photo.create(title: "Bay at Night", category: wallpaper)
@@ -34,9 +33,7 @@ family = Photo.create(title: "Family", category: people)
 coffee = Photo.create(title: "Coffee", category: people)
 flowers = Photo.create(title: "Flowers", category: people)
 
-p Photo.all
 comment = Comment.create(body: "This is an example of a comment for this category." , commentable: nature)
 comment = Comment.create(body: "This is an example of a comment for this photo." , commentable: family)
 
-p Photo.all
-p comment
+puts "Seeding Done"
