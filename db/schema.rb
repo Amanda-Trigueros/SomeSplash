@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_21_221534) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "comments_count", default: 0
+
     t.index ["category_id"], name: "index_photos_on_category_id"
   end
 
